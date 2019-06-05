@@ -1,5 +1,5 @@
 # MealGraphs-with-JS
-Try it here: https://elizavetara.github.io/Graphs-with-JS/
+Try it here: https://elizavetara.github.io/MealGraphs-with-JS/
 
 Interactive Graph to visualize pereferences and similarities in meals by 4 persons:
 - tracked data about meals

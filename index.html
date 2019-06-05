@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Graph-Visualisierung des Essverhaltens</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="Javascript/dataFood.js"></script>
+<script src="Javascript/dataMeal.js"></script>
+<script src="Javascript/dataPart.js"></script>
+<script src="Javascript/data.js"></script>
+<script src="Javascript/util.js"></script>
+<script src="Javascript/ForceNode.js"></script>
+<script src="Javascript/main.js"></script>
+</head>
+<body onload="init()">
+    <canvas id="canvas"></canvas>
+    <div id="nodes"></div>
+    <div id="lens">
+    	<div id="lensHandle"></div>
+    </div>
+    <div id="menu">
+        <div id="menuHandle" onclick="menuToggle()">
+        _____<br>_____<br>_____
+        </div>
+        <h3>Allgemeine Einstellungen</h3>
+        Sichtbarkeit inaktiver Knoten<br>
+        
+        <input id="transparency" type="range" min="0" max="100" step="5" value="40" onchange="transparencyChange(this)" oninput="transparencyChange(this)" class="slider"> <div id="transparencyLabel"> 40%</div>
+        <hr>
+        <h3>Linseneinstellungen</h3>
+        <label>
+            <input id="checkLens" type="checkbox" name="Linse anzeigen" onclick="showLens()"> Linse anzeigen<br><br>
+        </label>
+            <input id="radioVeg" type="checkbox" name="lensType" onclick="showLens()" checked="true"> Vegetarisch<br>
+            <input id="radioTime" type="checkbox" name="lensType" onclick="showLens()"> Zeit<br>
+            <input id="startTime" type="range" min="0" max="23" value="0" onchange="lensTimeFrameChange(this)" oninput="lensTimeFrameChange(this)" class="slider" disabled>Von <div id="startTimeLabel">0:00 Uhr</div><br>
+            <input id="endTime" type="range" min="0" max="23" value="0" onchange="lensTimeFrameChange(this)" oninput="lensTimeFrameChange(this)" class="slider" disabled>Bis <div id="endTimeLabel">23:59 Uhr</div><br><br>
+        Linsengr&ouml;&szlig;e<br>
+        <input id="lensSize" type="range" min="5" max="100" value="50" onchange="lensSizeChange(this)" oninput="lensSizeChange(this)" class="slider"> <div id="lensSizeLabel"> 50%</div>
+        <hr>
+        <h3>Legende</h3>
+        <table>
+            <tr><td><div class="food size" style="height: 2vmin; width: 2vmin;"></td><td>Gericht: Die Gr&ouml;&szlig;e des Knotens steigt mit der Anzahl der Zutaten</td></tr>
+            <!--<tr><td><div class="food size" style="height: 3vmin; width: 3vmin;"></td><td>Zwei bis Vier Zutaten</td></tr>
+            <tr><td><div class="food size" style="height: 4vmin; width: 4vmin;"></td><td>Fünf bis Acht Zutaten</td></tr>
+            <tr><td><div class="food size" style="height: 5vmin; width: 5vmin;"></td><td>Mehr Zutaten</td></tr>-->
+            <tr><td><img src="categories_pics/Getreide.png" class="legend"></td><td>Getreide</td></tr>
+            <tr><td><img src="categories_pics/Eispeise.png" class="legend"></td><td>Eispeise</td></tr>
+            <tr><td><img src="categories_pics/Fertiggericht.png" class="legend"></td><td>Fertiggericht</td></tr>
+            <tr><td><img src="categories_pics/Fisch.png" class="legend"></td><td>Fisch</td></tr>
+            <tr><td><img src="categories_pics/Fleisch.png" class="legend"></td><td>Fleisch</td></tr>
+            <tr><td><img src="categories_pics/Kartoffelprodukt.png" class="legend"></td><td>Kartoffelprodukt</td></tr>
+            <tr><td><img src="categories_pics/Milchprodukt.png" class="legend"></td><td>Milchprodukt</td></tr>
+            <tr><td><img src="categories_pics/Obst&Gemüse.png" class="legend"></td><td>Obst&Gem&uuml;se</td></tr>
+            <tr><td><img src="categories_pics/Obstprodukt.png" class="legend"></td><td>Obstprodukt</td></tr>
+            <tr><td><img src="categories_pics/Süßware.png" class="legend"></td><td>S&uuml;&szlig;ware</td></tr>
+            <tr><td><img src="categories_pics/Teigware.png" class="legend"></td><td>Teigware</td></tr>
+            <tr><td><img src="categories_pics/Nüsse.png" class="legend"></td><td>N&uuml;sse</td></tr>
+        </table>
+    </div>
+</body>
+</html>
